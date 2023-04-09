@@ -4,7 +4,7 @@
 This repo is accompanying our paper "Towards Zero-Shot Cross-Agent Transfer Learning via Aligned Latent-Space Task-Solving".
 
 <p align="center">
-  <img src="/ressources/transfert.png" width=70% />
+  <img src="/ressources/LS-UNN_pipeline.png" width=70% />
 </p>
 <p align="center">
   
