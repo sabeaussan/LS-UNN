@@ -1,0 +1,5 @@
+results/
+*.pyc
+bases/models/
+log/
+test_commands.txt

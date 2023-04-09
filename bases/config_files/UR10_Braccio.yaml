@@ -1,0 +1,16 @@
+common :
+  - primitive_task : "Reacher"
+  - dim_latent: 6
+  - base_hidden_dim: 256
+  - r1_name : "UR10"
+  - r2_name : "Braccio"
+  - r1_state_dim : 12
+  - r2_state_dim : 10
+  - BETA : 0.00015
+  - ALPHA : 3
+  - DELTA : 2
+  - LAMBDA : 1
+  - num_epochs : 5
+  - batch_size : 100
+  - learning_rate : 0.0003
+

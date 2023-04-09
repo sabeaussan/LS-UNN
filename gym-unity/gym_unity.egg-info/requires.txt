@@ -1,0 +1,2 @@
+gym==0.20.0
+mlagents_envs==0.28.0
