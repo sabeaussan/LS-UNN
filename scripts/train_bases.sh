@@ -1,6 +1,6 @@
 #!/bin/bash
 # train bases Pand/Braccio and UR10/Braccio
-cd ../bases
+cd bases
 echo $1
 if [ -z $1 ];
 then 
