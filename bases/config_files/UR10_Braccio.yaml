@@ -10,7 +10,7 @@ common :
   - ALPHA : 3
   - DELTA : 2
   - LAMBDA : 1
-  - num_epochs : 5
+  - num_epochs : 100
   - batch_size : 100
   - learning_rate : 0.0003
 
