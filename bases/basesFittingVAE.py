@@ -135,8 +135,8 @@ dir_path = 'models/{}/bases_dim_{}/100k/{}/'.format(PRIMITIVE_TASK,DIM_LATENT,ru
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
-torch.save(bases_r1.in_.state_dict(), 'models/{}/bases_dim_{}/100k/{}/{}_input_{}.pth'.format(PRIMITIVE_TASK,DIM_LATENT,run_id,R1_NAME,R2_NAME))
-torch.save(bases_r1.out.state_dict(), 'models/{}/bases_dim_{}/100k/{}/{}_output_{}.pth'.format(PRIMITIVE_TASK,DIM_LATENT,run_id,R1_NAME,R2_NAME))
+torch.save(bases_r1.in_.state_dict(), 'models/{}/bases_dim_{}/100k/{}/{}_input.pth'.format(PRIMITIVE_TASK,DIM_LATENT,run_id,R1_NAME))
+torch.save(bases_r1.out.state_dict(), 'models/{}/bases_dim_{}/100k/{}/{}_output.pth'.format(PRIMITIVE_TASK,DIM_LATENT,run_id,R1_NAME))
 save_yaml(dir_path,run_id,config)
 
 
