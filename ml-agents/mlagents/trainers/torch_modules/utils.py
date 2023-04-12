@@ -1,5 +1,5 @@
 from typing import List, Optional, Tuple, Dict
-from mlagents.torch_utils import torch, nn
+from mlagents.torch_utils import torch, nn, default_device
 from mlagents.trainers.torch_modules.layers import LinearEncoder, Initialization
 import numpy as np
 
