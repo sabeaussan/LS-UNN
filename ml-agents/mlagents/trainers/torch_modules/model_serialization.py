@@ -134,4 +134,4 @@ class ModelSerializer:
 
         :param output_filepath: file path to output the model (without file suffix)
         """
-        print(f"Exported {onnx_output_path}")
+        print(f"Exported {output_filepath}")
