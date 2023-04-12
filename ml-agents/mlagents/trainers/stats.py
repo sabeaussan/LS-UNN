@@ -180,14 +180,12 @@ class ConsoleWriter(StatsWriter):
 
             log_info.append(f"Mean Reward: {stats_summary.mean:0.3f}")
             self.rwd_mean_history.append(stats_summary.mean)
-            np.savetxt(model_path + "/mean_rwd.txt",np.array(self.rwd_mean_history), fmt = "%1.3f")
             if "Environment/Group Cumulative Reward" in values:
                 group_stats_summary = values["Environment/Group Cumulative Reward"]
                 log_info.append(f"Mean Group Reward: {group_stats_summary.mean:0.3f}")
             else:
                 log_info.append(f"Std of Reward: {stats_summary.std:0.3f}")
                 self.rwd_std_history.append(stats_summary.std)
-                np.savetxt(model_path + "/std_rwd.txt",np.array(self.rwd_std_history), fmt = "%1.3f")
             log_info.append(is_training)
 
             if self.self_play and "Self-play/ELO" in values:
