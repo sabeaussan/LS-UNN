@@ -14,16 +14,21 @@ This repository is accompanying our paper "Towards Zero-Shot Cross-Agent Transfe
 
 ## Install
 
+### Requirements
+  - Python >= 3.7
+
 Inside your favorite python virtual environment run the following bash command to pip install all the required python package :
 ```bash
 ./scripts/install_commands.sh
 ```
-Then install final package with 
+Then final package "gy_unity" can be installed with 
 ```bash
 cd gym_unity
 pip3 install -e ./gym_unity
 ```
-If everything is set correctly, you should be good to go. Every arguments for the python scripts are documented. Run
+If everything is set correctly, you should be good to go ! 
+
+The test files are written in python and accept a list of arguments to specify what to evaluate. Every arguments for the python scripts are documented. Simply run
 ```bash
 python "name_script".py -h
 ```
@@ -31,9 +36,8 @@ for information about how to chose the command line arguments.
 
 ## Reproduce results from saved models
 
-You can download the models used to produce the results presented in the paper using the following link : ?
-UNN models for all the considered robots and tasks are located inside the "published_results" archive. It contains all the checkpoints obtained during training. To run the test with these models you need to first extract it at the root ot this repo and rename it to "results". 
-You also need to dowload the corresponding bases "models" and extract inside the bases folder. It should contains the "aligned_00015" bases.
+You can download the models used to produce the results presented in the paper using the following link : [?](https://drive.google.com/drive/folders/1oHurrIOmDSvkXpp44jjq2Jgw2JFxygrX?usp=sharing).
+The UNN models for all the considered robots and tasks are located inside the "published_results" archive. It contains all the checkpoints obtained during training. To run the tests with these models you need to first extract it at the root ot this repo and rename it to "results". At the same google drive location you will also find the models of the bases used throughout our experiments. To use these, you need to extract the files inside the bases folder. It sould contains the models under the "aligned_00015" subfolder.
 
 ### Testing for Zero-shot performance and Fine-tuned performance
 It will test the checkpoints of each robots to find the one giving the best transfer results for the considered task. Checkpoints were saved every 50000 training steps. You can specify test frequency with the -f argument. It will test one every f checkpoints (default one every 2 checkpoints).
@@ -63,7 +67,7 @@ To regenerate newly trained UNN models, you can either use the pre-trained bases
 ```bash
 ./scripts/train_bases.sh RUN-ID
 ```
-where RUN-ID is the name you want to give to the generated bases. Leaving it blank will create the models under "trained_bases". If you want to use newly trained bases, you will need to modify the config yaml files to specify the bases name to replace the default "aligned_00015" ("base_in_path" and "base_outpath" attributes).
+where RUN-ID is the name you want to give to the generated bases. It will run bases training for the Panda/Braccio pair and then the Braccio/UR10 pair. Not specifying any RUN-ID will create the models under "trained_bases" by default. If you want to use your newly trained bases, you will need to modify the config yaml files (in the config folder at the root) for the 3 robots to specify the bases name to replace the default "aligned_00015" ("base_in_path" and "base_outpath" attributes). Ex :
 
 ### Training the models
 You can train all the models (PPOs and UNNs) for a given task with the given script :
