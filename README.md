@@ -1,7 +1,7 @@
 # Latent Space Universal Notice Network
 
 
-This repo is accompanying our paper "Towards Zero-Shot Cross-Agent Transfer Learning via Aligned Latent-Space Task-Solving".
+This repository is accompanying our paper "Towards Zero-Shot Cross-Agent Transfer Learning via Aligned Latent-Space Task-Solving".
 
 <p align="center">
   <img src="/ressources/LS-UNN_pipeline.png" width=70% />
