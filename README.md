@@ -36,7 +36,7 @@ for information about how to chose the command line arguments.
 
 ## Reproduce results from saved models
 
-You can download the models used to produce the results presented in the paper using the following link : [?](https://drive.google.com/drive/folders/1oHurrIOmDSvkXpp44jjq2Jgw2JFxygrX?usp=sharing).
+You can download the models used to produce the results presented in the paper using the following link [here](https://drive.google.com/drive/folders/1oHurrIOmDSvkXpp44jjq2Jgw2JFxygrX?usp=sharing).
 The UNN models for all the considered robots and tasks are located inside the "published_results" archive. It contains all the checkpoints obtained during training. To run the tests with these models you need to first extract it at the root ot this repo and rename it to "results". At the same google drive location you will also find the models of the bases used throughout our experiments. To use these, you need to extract the files inside the bases folder. It sould contains the models under the "aligned_00015" subfolder.
 
 ### Testing for Zero-shot performance and Fine-tuned performance
