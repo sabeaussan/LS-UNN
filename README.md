@@ -69,19 +69,26 @@ To regenerate newly trained UNN models, you can either use the pre-trained bases
 ```
 where RUN-ID is the name you want to give to the generated bases. It will run bases training for the Panda/Braccio pair and then the Braccio/UR10 pair. Not specifying any RUN-ID will create the models under "trained_bases" by default. If you want to use your newly trained bases, you will need to modify the config yaml files (in the config folder at the root) for the 3 robots to specify the bases name to replace the default "aligned_00015" ("base_in_path" and "base_outpath" attributes). Ex :
 
+<p align="center">
+  <img src="/ressources/scrren_config_yaml.png" width=70% />
+</p>
+<p align="center">
+  
+</p>
+
 ### Training the models
 You can train all the models (PPOs and UNNs) for a given task with the given script :
 ```bash
 ./scripts/train_agents_{task_name}.sh
 ```
-where task_name is either : "picknplace", "ball_catcher" or "peg_insertion". By default it wil generate results in "results/{task_name}. It will use PPO implementation of ml-agents for training. Hyper-parameters are specified in yaml files inside the config folder at the root of the repository. Please check https://github.com/Unity-Technologies/ml-agents/tree/develop for additionnal information about the ml-agents config files.
+where task_name is either : "picknplace", "ball_catcher" or "peg_insertion". By default it will generate results in "results/{task_name}using the PPO implementation of ml-agents for training. Hyper-parameters are specified in yaml files inside the config folder at the root of the repository. Feel free to check https://github.com/Unity-Technologies/ml-agents/tree/develop for additionnal information about the ml-agents config files.
 
 ### Fine-tuning the UNN models
 Before fine-tuning the generated UNN models, it is necessary to run 
 ```bash
 python3 run_test_max_perfs.py -n 1000 -f 2 -m MODE_ID -t TASK_ID
 ```
-It will automatically populate the folder containing the best checkpoints for further training on the target robot. Once checkpoint files are available, you can run 
+It will sequentially test each checkpoints and automatically populate the folder containing the checkpoint for further training on the target robot with the best performing one. By default the name of the checkpoint is checkpoint_{robot_name}. Once checkpoint files are available, you can run 
 ```bash
 ./scripts/fine_tune_unn_agents_{task_name}.sh
 ```
