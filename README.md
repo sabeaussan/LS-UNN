@@ -23,7 +23,7 @@ Inside your favorite python virtual environment run the following bash command t
 ```
 Then final package "gy_unity" can be installed with 
 ```bash
-cd gym_unity
+cd gym-unity
 pip3 install -e .
 ```
 If everything is set correctly, you should be good to go ! 
