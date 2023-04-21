@@ -21,10 +21,14 @@ Inside your favorite python virtual environment run the following bash command t
 ```bash
 ./scripts/install_commands.sh
 ```
-Then final package "gy_unity" can be installed with 
+Then final package "gym-unity" can be installed with 
 ```bash
 cd gym-unity
 pip3 install -e .
+```
+Finally, you need to create a folder named "log" at the root of this repository
+```bash
+mkdir log
 ```
 If everything is set correctly, you should be good to go ! 
 
