@@ -10,7 +10,7 @@ from mlagents.trainers.settings import TrainerSettings, SerializationSettings
 from mlagents.trainers.policy.torch_policy import TorchPolicy
 from mlagents.trainers.optimizer.torch_optimizer import TorchOptimizer
 from mlagents.trainers.torch_modules.model_serialization import ModelSerializer
-
+from mlagents.torch_utils import default_device
 
 logger = get_logger(__name__)
 DEFAULT_CHECKPOINT_NAME = "checkpoint.pt"
@@ -152,8 +152,8 @@ class TorchModelSaver(BaseModelSaver):
             logger.info(f"Resuming training from step {policy.get_current_step()}.")
 
         if self.transfer_settings.use_bases :
-            policy.actor.network_body.observation_encoder.processors[0].load_state_dict(torch.load(self.transfer_settings.base_in_path),strict = True)
-            policy.actor.base_out.load_state_dict(torch.load(self.transfer_settings.base_out_path),strict = False)
+            policy.actor.network_body.observation_encoder.processors[0].load_state_dict(torch.load(self.transfer_settings.base_in_path, map_location = default_device()),strict = True)
+            policy.actor.base_out.load_state_dict(torch.load(self.transfer_settings.base_out_path, map_location = default_device()),strict = False)
             """policy.actor.action_model._continuous_distribution.mu.weight = torch.nn.Parameter(saved_state_dict["Policy"]["action_model._continuous_distribution.mu.weight"].clone(),requires_grad = True)
             policy.actor.action_model._continuous_distribution.mu.bias = saved_state_dict["Policy"]["action_model._continuous_distribution.mu.bias"].clone()
             policy.actor.action_model._continuous_distribution.log_sigma = saved_state_dict["Policy"]["action_model._continuous_distribution.log_sigma"].clone()"""
